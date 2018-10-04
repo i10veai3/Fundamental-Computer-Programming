@@ -1,0 +1,136 @@
+//7.
+
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scn=new Scanner(System.in);
+        char a1=scn.next().charAt(0);
+
+        int diff = a1-'a';
+
+        if(diff>=0&&diff<=25)
+        {
+            System.out.println((char) ('A' + diff));
+        }else if(diff<=-7&&diff>=-32)
+        {
+            System.out.println((char) ('a'+ diff+32));
+        }
+    }
+}
+
+
+//16.
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scn = new Scanner (System.in);
+        int a1 = scn.nextInt();
+
+        if (a1%2==0)
+        {
+            System.out.println("Even");
+            
+        }else
+        {
+            System.out.println("Odd");
+            
+        }
+     }
+}
+
+
+//29.
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scn = new Scanner (System.in);
+        int a1 = scn.nextInt();
+        int t,h,ten,d;
+
+        t=a1/1000;
+        a1=a1-t*1000;
+
+        h=a1/100;
+        a1=a1-h*100;
+
+        ten=a1/10;
+        a1=a1-ten*10;
+        d=a1;
+
+        if(t>=1)
+        {
+            System.out.println(t+"thousand");
+
+        }else if(h>=1&&ten==0&&d==0)
+        {
+            System.out.println(h+" hundred ");
+        }else if(h>=1)
+        {
+            System.out.print(h+" hundred ");
+            if(ten>=1&&d==0)
+            {
+                System.out.println(ten+" ten ");
+
+            }else if(ten>=1&&d>=1)
+            {
+                System.out.print(ten+" ten ");
+                System.out.println(d+" dollar ");
+            }else if (ten==0&&d>=1)
+            {
+                System.out.println(d+" dollar ");
+            }
+        }else if(h==0&&ten>=1&&d==0)
+        {
+            System.out.println(ten+" ten ");
+        }else if(h==0&&ten>=1&&d>=1)
+        {
+            System.out.print(ten+" ten ");
+            System.out.println(d+" dollar ");
+
+        }else if(h==0&&ten==0&&d>=1)
+        {
+            System.out.println(d+" dollar ");
+
+        }
+    }
+}
+
+
+//31.
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scn = new Scanner (System.in);
+        int a1 = scn.nextInt();
+
+        if(a1<-1)
+        {
+            System.out.println(3*a1*a1);
+            
+        }else if(a1>=-1&&a1<=1)
+        {
+            System.out.println(a1*a1*a1+3*a1-3);
+            
+        }else if(a1>1)
+        {
+            System.out.println(2*a1+3);
+            
+        }
+    }
+}
