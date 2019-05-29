@@ -1,0 +1,189 @@
+import java.util.Scanner;
+
+public class W14_T0524_07 {
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        long array[] = new long[n];
+
+        for (int i = 0; i < n ; i++)
+            array[i]=scn.nextLong();
+        for (int i = 0; i < n ; i++)
+        {
+            for (int j=i+1 ; j<n ;j++)
+            {
+                if (array[i]>array[j])
+                {
+                    long b = array[i];
+                    array[i] = array[j];
+                    array[j] = b;
+                }
+            }
+            System.out.println(array[i]);
+        }
+
+
+    }
+}
+
+import java.util.Scanner;
+
+public class W14_T0524_08 {
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String a = scn.nextLine().replace(" ","");
+        int array[] = new int[a.length()];
+        for (int i=0 ;i<a.length();i++)
+            array[i] = (int)a.charAt(i)-48;
+        square(array);
+    }
+
+    public static void square(int Data[]) {
+        for(int i=0;i<Data.length;i++)
+            System.out.print(Data[i]*Data[i]+"\t");
+        System.out.println();
+    }
+}
+
+import java.util.Scanner;
+
+public class W14_T0524_09 {
+
+    public static void main(String[] args) {
+        Scanner scn =new Scanner(System.in);
+        String a = scn.nextLine().replace(" ","");
+        int array[] = new int[a.length()];
+
+
+        for (int i=0 ;i<a.length();i++)
+            array[i] = (int)a.charAt(i)-48;
+
+        for(int i=0;i<a.length();i++)
+        {
+            for (int j=i+1;j<a.length();j++)
+            {
+                if(array[i]>array[j])
+                {
+                    int b = array[i];
+                    array[i]=array[j];
+                    array[j]=b;
+                }
+            }
+            if (i==a.length()-1)
+            {
+                System.out.print(array[i]);
+            }else
+            {
+                System.out.print(array[i]+" ");
+            }
+        }
+        System.out.println();
+    }
+
+
+}
+
+import java.util.Scanner;
+
+public class W14_T0524_10 {
+
+    public static void main(String[] args) {
+        Scanner scn =new Scanner(System.in);
+        int n = scn.nextInt();
+        int array[] = new int[n];
+        int MAX =Integer.MIN_VALUE;
+        int min;
+
+        for (int i=0;i<n;i++)
+            array[i]=scn.nextInt();
+
+        for(int i=0;i<n;i++)
+        {
+            min=array[i];
+            for (int j = i + 1; j < n; j++)
+            {
+                min*=array[j];
+                if (min>MAX)
+                    MAX=min;
+            }
+        }
+        System.out.println(MAX);
+    }
+}
+
+import java.util.Scanner;
+
+public class W14_T0524_11 {
+
+    public static void main(String[] args) {
+        Scanner scn =new Scanner(System.in);
+        int n = scn.nextInt();
+        int array[] = new int[n];
+        int MAX =Integer.MIN_VALUE;
+        int min;
+
+        for (int i=0;i<n;i++)
+            array[i]=scn.nextInt();
+
+        for(int i=0;i<n;i++)
+        {
+            min=array[i];
+            String str =Integer.toString(array[i]);
+            for (int j = i + 1; j < n; j++)
+            {
+                min+=array[j];
+                str+=" "+Integer.toString(array[j]);
+                if (min==0)
+                    System.out.println(str);
+            }
+        }
+    }
+}
+
+import java.util.Scanner;
+
+public class W14_T0524_12 {
+
+    public static void main(String[] args) {
+        Scanner scn =new Scanner(System.in);
+        int n1 = scn.nextInt(),n2 = scn.nextInt();
+        int array1[] = new int[n1],array2[] = new int[n2];
+        int P = 0,Z =0;
+        boolean check1 = false;
+
+        for (int i=0;i<n1;i++)
+            array1[i]=scn.nextInt();
+
+        for (int i=0;i<n2;i++)
+            array2[i]=scn.nextInt();
+
+        for (int i=0;i<n1;i++)
+        {
+            check1 =false;
+            for (int j=0;j<n2;j++)
+            {
+                if (array1[i]==array2[j])
+                {
+                    check1=true;
+                    Z++;
+                    break;
+                }
+            }
+
+            if (check1)
+            {
+                for (int j=0;j<i;j++)
+                {
+                    if (array1[i]==array1[j])
+                    {
+                        P++;
+                        break;
+                    }
+                }
+            }
+        }
+        System.out.println(Z-P);
+    }
+}
