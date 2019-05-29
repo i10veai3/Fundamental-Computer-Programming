@@ -1,3 +1,19 @@
+import java.util.Scanner;
+
+public class W13_T0520_01 {
+
+    public static void main(String[] args) {
+        Scanner scn =new Scanner(System.in);
+        String str=scn.nextLine();
+
+        for(int i=str.length()-1;i>=0;i--)
+        {
+            System.out.print(str.charAt(i));
+        }
+        System.out.println();
+    }
+}
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -135,21 +151,5 @@ public class W13_T0520_06 {
         }
         System.out.println();
 
-    }
-}
-
-import java.util.Scanner;
-
-public class W13_T0520_01 {
-
-    public static void main(String[] args) {
-        Scanner scn =new Scanner(System.in);
-        String str=scn.nextLine();
-
-        for(int i=str.length()-1;i>=0;i--)
-        {
-            System.out.print(str.charAt(i));
-        }
-        System.out.println();
     }
 }
