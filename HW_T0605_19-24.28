@@ -1,0 +1,221 @@
+import java.util.Scanner;
+
+public class W16_T0605_19 {
+    public static void main(String[] args) {
+        Scanner scn =new Scanner(System.in);
+        int n = Integer.parseInt(scn.nextLine());
+        for (int i=0;i<n;i++) {
+            String str[] = scn.nextLine().split(" ");
+            int array[] = new int[str.length];
+            for (int j=0;j<str.length;j++) {
+                switch (str[j].charAt(0)){
+                    case 'S':
+                        array[j]=39;
+                        break;
+                    case 'H':
+                        array[j]=26;
+                        break;
+                    case 'D':
+                        array[j]=13;
+                        break;
+                    case 'C':
+                        array[j]=0;
+                        break;
+                }
+            }
+            for (int j=0;j<str.length;j++) {
+                for (int k=j+1;k<str.length;k++) {
+                    if (array[j] < array[k]) {
+                        int c = array[j];
+                        array[j] = array[k];
+                        array[k] = c;
+                        String stri = str[j];
+                        str[j] = str[k];
+                        str[k] = stri;
+                    }
+                }
+            }
+            for (int j=0;j<str.length;j++)
+                System.out.print(str[j]+" ");
+            System.out.println();
+        }
+    }
+}
+
+import java.util.Scanner;
+
+public class W16_T0605_20 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String str = scn.nextLine();
+        boolean check = true;
+        for(int i=0;i<str.length()/2;i++) {
+            if (str.charAt(i)-str.charAt(str.length()-i-1)!=0)
+                check=false;
+        }
+
+        if(check)
+            System.out.println("YES");
+        else
+            System.out.println("NO");
+
+
+    }
+}
+
+import java.util.Scanner;
+
+public class W16_T0605_21 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String str = scn.nextLine();
+        String array[] = str.split(" ");
+        int Size = array.length,sem;
+        int idarray[][]=new int[2][26];
+
+        for (int i=0;i<str.length();i++){
+            sem = str.charAt(i) - 'a';
+            if(sem >= 0 && sem < 26)
+                idarray[0][sem]++;
+            else {
+                sem = str.charAt(i) - 'A';
+                if (sem >=0 && sem < 26)
+                    idarray[1][sem]++;
+            }
+        }
+
+        System.out.println(Size);
+        for (int i=0;i<26;i++){
+            if(idarray[0][i]>0)
+                System.out.println((char)((int)'a'+i)+"="+idarray[0][i]);
+            else if(idarray[1][i]>0)
+                System.out.println((char)((int)'A'+i)+"="+idarray[1][i]);
+        }
+    }
+}
+
+import java.util.Scanner;
+
+public class W16_T0605_22 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        char array[][] = new char[3][3];
+        boolean check =false;
+        for (int i=0;i<3;i++) {
+            for (int j=0;j<3;j++)
+                array[i][j]=scn.next().charAt(0);
+        }
+
+        if (array[0][0]==array[0][1]&&array[0][1]==array[0][2])
+            check=true;
+        else if(array[1][0]==array[1][1]&&array[1][1]==array[1][2])
+            check=true;
+        else if(array[2][0]==array[2][1]&&array[2][1]==array[2][2])
+            check=true;
+        else if(array[0][0]==array[1][0]&&array[1][0]==array[2][0])
+            check=true;
+        else if(array[0][1]==array[1][1]&&array[1][1]==array[2][1])
+            check=true;
+        else if(array[0][2]==array[1][2]&&array[1][2]==array[2][2])
+            check=true;
+        else if(array[0][0]==array[1][2]&&array[1][2]==array[2][2])
+            check=true;
+        else if(array[0][2]==array[1][2]&&array[1][2]==array[2][0])
+            check=true;
+
+        if (check)
+            System.out.println("True");
+        else
+            System.out.println("False");
+
+    }
+}
+
+import java.util.Scanner;
+
+public class W16_T0605_23 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        String array[] = new String[n];
+        int arrayall[] =new int[n];
+        int sem;
+        String tmp = "";
+        for (int i=0;i<n;i++) {
+            sem=0;
+            array[i] = String.valueOf(scn.nextInt());
+            for (int j=0;j<4;j++)
+                sem = sem + (int) array[i].charAt(j)-48;
+            arrayall[i]=sem;
+        }
+
+        for (int i=0;i<n;i++) {
+            for (int j=i+1;j<n;j++)
+            if (arrayall[i]>arrayall[j]) {
+                sem=arrayall[i];
+                arrayall[i]=arrayall[j];
+                arrayall[j]=sem;
+                tmp=array[i];
+                array[i]=array[j];
+                array[j]=tmp;
+            }else if(arrayall[i]==arrayall[j]) {
+                for (int k=0;k<4;k++){
+                    if (array[i].charAt(k)>array[j].charAt(k)) {
+                        sem = arrayall[i];
+                        arrayall[i] = arrayall[j];
+                        arrayall[j] = sem;
+                        tmp = array[i];
+                        array[i] = array[j];
+                        array[j] = tmp;
+                        break;
+                    }
+                }
+            }
+        }
+
+        for (int i=0;i<n;i++) {
+            if (i==n-1)
+                System.out.print(array[i]);
+            else
+                System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+}
+
+import java.util.Scanner;
+
+public class W16_T0605_24 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int idarray[]={10,11,12,13,14,15,16,17,34,18,19,20,21,22,35,23,24,25,26,27,28,29,32,30,31,33};
+        String str = scn.nextLine();
+        int sem =(idarray[str.charAt(0)-'A'])/10+(idarray[str.charAt(0)-'A'])%10*9+str.charAt(9)-48;
+        int j = 1;
+
+        for (int i=8;i>0;i--) {
+            sem+=i*(str.charAt(j)-48);
+            j++;
+        }
+
+        if (sem%10==0)
+            System.out.println("CORRECT!!!");
+        else
+            System.out.println("WRONG!!!");
+    }
+}
+
+import java.util.Scanner;
+
+public class W17_T0612_28 {
+    public static void main(String[] args) {
+        Scanner scn =new Scanner(System.in);
+        System.out.println(fun(scn.nextInt(),scn.nextInt()));
+    }
+    public static int fun(int n,int m) {
+        if(n%m==0)
+            return m;
+        else
+            return fun(m,n%m);
+    }
+}
